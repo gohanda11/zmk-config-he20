@@ -97,15 +97,15 @@
         };
     };
 
-    &he_pass {
-        keymap-size = <22>;
-    };
-
     he_input_listener: he_input_listener {
         compatible = "he,input-listener";
         device = <&he_kscan>;
         input-processors = <&he_pass 0>;
     };
+};
+
+&he_pass {
+    keymap-size = <22>;
 };
 
 &adc {
