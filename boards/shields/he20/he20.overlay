@@ -97,6 +97,10 @@
         };
     };
 
+    &he_pass {
+        keymap-size = <22>;
+    };
+
     he_input_listener: he_input_listener {
         compatible = "he,input-listener";
         device = <&he_kscan>;
