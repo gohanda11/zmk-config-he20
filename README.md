@@ -9,6 +9,7 @@ XIAO nRF52840 + SN74LV4051A x3 + GH39FKSW による Hall Effect キーボード�
 | MCU | Seeed XIAO nRF52840 |
 | Hall Effect スイッチ | GH39FKSW |
 | アナログマルチプレクサ | SN74LV4051A x 3 |
+| トラックボールセンサー | PMW3610 ([zmk-pmw3610-driver](https://github.com/gohanda11/zmk-pmw3610-driver)) |
 | ドライバ | [zmk-feature-hall-effect](https://github.com/gohanda11/zmk-feature-hall-effect) (フォーク版) |
 
 ## キーレイアウト
@@ -32,6 +33,20 @@ XIAO nRF52840 + SN74LV4051A x3 + GH39FKSW による Hall Effect キーボード�
 
 Row 3 の 1U キーと Row 4 の 2U キーは物理的に入れ替えて使用できる。
 取り付けていないキーには `&none` を設定する。
+
+## トラックボール
+
+PMW3610 センサーを J1 コネクタ経由で接続。
+
+| 信号 | ピン | GPIO |
+|------|------|------|
+| CS | D0 | P0.02 |
+| SDIO (MOSI/MISO) | D4 | P0.04 |
+| SCLK | D5 | P0.05 |
+| MOTION (IRQ) | D6 | P1.11 |
+
+- automouse-layer: MOUSE (layer 1) - トラックボール操作時に自動切替
+- scroll-layers: SCROLL (layer 5) - スクロールモード
 
 ## ビルド方法
 

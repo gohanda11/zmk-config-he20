@@ -12,5 +12,8 @@ manifest:
     - name: zmk-feature-hall-effect
       remote: gohanda11
       revision: main
+    - name: zmk-pmw3610-driver
+      remote: gohanda11
+      revision: main
   self:
     path: config

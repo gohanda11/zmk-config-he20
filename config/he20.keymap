@@ -1,6 +1,12 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
+
+&trackball {
+    automouse-layer = <1>;  // MOUSE layer
+    scroll-layers = <5>;    // SCROLL layer
+};
 
 / {
     keymap {
@@ -53,11 +59,11 @@
 
         MOUSE {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans
-                &trans  &trans
+                &trans    &trans    &trans    &trans    &trans
+                &trans    &trans    &trans    &trans    &trans
+                &trans    &trans    &trans    &trans    &trans
+                &trans    &trans    &mkp MB1  &mkp MB3  &mkp MB2
+                &trans    &trans
             >;
         };
 

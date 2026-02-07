@@ -6,3 +6,4 @@ url: https://github.com/gohanda11/zmk-config-he20
 requires: [xiao_ble]
 features:
   - keys
+  - trackball
