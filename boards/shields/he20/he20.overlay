@@ -5,12 +5,21 @@
 / {
     chosen {
         zmk,kscan = &kscan_forwarder;
-        zmk,physical-layout = &he20_physical_layout;
+        zmk,physical-layout = &he20_layout_1u;
     };
 
-    he20_physical_layout: he20_physical_layout {
+    /*
+     * 4 Physical Layouts for bottom row (Row 3) variants:
+     *   1u:       1U, 1U, 1U, 1U, 1U  (HE16-HE20)     = 20 keys
+     *   2u_left:  2U, 1U, 1U, 1U       (HE21,HE18-HE20) = 19 keys
+     *   2u_right: 1U, 1U, 1U, 2U       (HE16-HE18,HE22) = 19 keys
+     *   2u_both:  2U, 1U, 2U           (HE21,HE18,HE22)  = 18 keys
+     */
+
+    /* ── Layout 1: All 1U (default) ── */
+    he20_layout_1u: he20_layout_1u {
         compatible = "zmk,physical-layout";
-        display-name = "Default";
+        display-name = "1U 1U 1U 1U 1U";
         transform = <&default_transform>;
         kscan = <&kscan_forwarder>;
 
@@ -35,11 +44,153 @@
             , <&key_physical_attrs 100 100  200  300       0     0     0>
             , <&key_physical_attrs 100 100  300  300       0     0     0>
             , <&key_physical_attrs 100 100  400  300       0     0     0>
-            , <&key_physical_attrs 200 100    0  400       0     0     0>
-            , <&key_physical_attrs 200 100  300  400       0     0     0>
             ;
     };
 
+    /* ── Layout 2: 2U Left ── */
+    he20_layout_2u_left: he20_layout_2u_left {
+        compatible = "zmk,physical-layout";
+        display-name = "2U 1U 1U 1U";
+        transform = <&transform_2u_left>;
+        kscan = <&kscan_forwarder>;
+
+        keys  //                     w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100    0    0       0     0     0>
+            , <&key_physical_attrs 100 100  100    0       0     0     0>
+            , <&key_physical_attrs 100 100  200    0       0     0     0>
+            , <&key_physical_attrs 100 100  300    0       0     0     0>
+            , <&key_physical_attrs 100 100  400    0       0     0     0>
+            , <&key_physical_attrs 100 100    0  100       0     0     0>
+            , <&key_physical_attrs 100 100  100  100       0     0     0>
+            , <&key_physical_attrs 100 100  200  100       0     0     0>
+            , <&key_physical_attrs 100 100  300  100       0     0     0>
+            , <&key_physical_attrs 100 100  400  100       0     0     0>
+            , <&key_physical_attrs 100 100    0  200       0     0     0>
+            , <&key_physical_attrs 100 100  100  200       0     0     0>
+            , <&key_physical_attrs 100 100  200  200       0     0     0>
+            , <&key_physical_attrs 100 100  300  200       0     0     0>
+            , <&key_physical_attrs 100 100  400  200       0     0     0>
+            , <&key_physical_attrs 200 100    0  300       0     0     0>
+            , <&key_physical_attrs 100 100  200  300       0     0     0>
+            , <&key_physical_attrs 100 100  300  300       0     0     0>
+            , <&key_physical_attrs 100 100  400  300       0     0     0>
+            ;
+    };
+
+    /* ── Layout 3: 2U Right ── */
+    he20_layout_2u_right: he20_layout_2u_right {
+        compatible = "zmk,physical-layout";
+        display-name = "1U 1U 1U 2U";
+        transform = <&transform_2u_right>;
+        kscan = <&kscan_forwarder>;
+
+        keys  //                     w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100    0    0       0     0     0>
+            , <&key_physical_attrs 100 100  100    0       0     0     0>
+            , <&key_physical_attrs 100 100  200    0       0     0     0>
+            , <&key_physical_attrs 100 100  300    0       0     0     0>
+            , <&key_physical_attrs 100 100  400    0       0     0     0>
+            , <&key_physical_attrs 100 100    0  100       0     0     0>
+            , <&key_physical_attrs 100 100  100  100       0     0     0>
+            , <&key_physical_attrs 100 100  200  100       0     0     0>
+            , <&key_physical_attrs 100 100  300  100       0     0     0>
+            , <&key_physical_attrs 100 100  400  100       0     0     0>
+            , <&key_physical_attrs 100 100    0  200       0     0     0>
+            , <&key_physical_attrs 100 100  100  200       0     0     0>
+            , <&key_physical_attrs 100 100  200  200       0     0     0>
+            , <&key_physical_attrs 100 100  300  200       0     0     0>
+            , <&key_physical_attrs 100 100  400  200       0     0     0>
+            , <&key_physical_attrs 100 100    0  300       0     0     0>
+            , <&key_physical_attrs 100 100  100  300       0     0     0>
+            , <&key_physical_attrs 100 100  200  300       0     0     0>
+            , <&key_physical_attrs 200 100  300  300       0     0     0>
+            ;
+    };
+
+    /* ── Layout 4: 2U Both ── */
+    he20_layout_2u_both: he20_layout_2u_both {
+        compatible = "zmk,physical-layout";
+        display-name = "2U 1U 2U";
+        transform = <&transform_2u_both>;
+        kscan = <&kscan_forwarder>;
+
+        keys  //                     w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100    0    0       0     0     0>
+            , <&key_physical_attrs 100 100  100    0       0     0     0>
+            , <&key_physical_attrs 100 100  200    0       0     0     0>
+            , <&key_physical_attrs 100 100  300    0       0     0     0>
+            , <&key_physical_attrs 100 100  400    0       0     0     0>
+            , <&key_physical_attrs 100 100    0  100       0     0     0>
+            , <&key_physical_attrs 100 100  100  100       0     0     0>
+            , <&key_physical_attrs 100 100  200  100       0     0     0>
+            , <&key_physical_attrs 100 100  300  100       0     0     0>
+            , <&key_physical_attrs 100 100  400  100       0     0     0>
+            , <&key_physical_attrs 100 100    0  200       0     0     0>
+            , <&key_physical_attrs 100 100  100  200       0     0     0>
+            , <&key_physical_attrs 100 100  200  200       0     0     0>
+            , <&key_physical_attrs 100 100  300  200       0     0     0>
+            , <&key_physical_attrs 100 100  400  200       0     0     0>
+            , <&key_physical_attrs 200 100    0  300       0     0     0>
+            , <&key_physical_attrs 100 100  200  300       0     0     0>
+            , <&key_physical_attrs 200 100  300  300       0     0     0>
+            ;
+    };
+
+    /* ── Position Map ──
+     * Maps equivalent key positions across all 4 layouts.
+     * Array index = conceptual slot, value = position index in that layout.
+     *
+     * Slot 0-14: HE1-HE15 (identical across all layouts)
+     * Slot 15: Left end of Row 3  (HE16 or HE21)
+     * Slot 16: 2nd from left      (HE17 or virtual)
+     * Slot 17: Center             (HE18)
+     * Slot 18: 2nd from right     (HE19 or virtual)
+     * Slot 19: Right end          (HE20 or HE22)
+     */
+    he20_position_map {
+        compatible = "zmk,physical-layout-position-map";
+        complete;
+
+        map_1u {
+            physical-layout = <&he20_layout_1u>;
+            positions
+                = < 0  1  2  3  4>
+                , < 5  6  7  8  9>
+                , <10 11 12 13 14>
+                , <15 16 17 18 19>;
+        };
+
+        map_2u_left {
+            physical-layout = <&he20_layout_2u_left>;
+            positions
+                = < 0  1  2  3  4>
+                , < 5  6  7  8  9>
+                , <10 11 12 13 14>
+                , <15 19 16 17 18>;
+        };
+
+        map_2u_right {
+            physical-layout = <&he20_layout_2u_right>;
+            positions
+                = < 0  1  2  3  4>
+                , < 5  6  7  8  9>
+                , <10 11 12 13 14>
+                , <15 16 17 19 18>;
+        };
+
+        map_2u_both {
+            physical-layout = <&he20_layout_2u_both>;
+            positions
+                = < 0  1  2  3  4>
+                , < 5  6  7  8  9>
+                , <10 11 12 13 14>
+                , <15 19 16 18 17>;
+        };
+    };
+
+    /* ── Matrix Transforms ── */
+
+    // Layout 1: All 1U - 20 keys (HE1-HE20)
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <8>;
@@ -53,11 +204,61 @@
                RC(1,2)  RC(1,1)  RC(1,0)  RC(1,3)  RC(1,5)
             // Row 3: HE16     HE17     HE18     HE19     HE20
                RC(2,7)  RC(2,4)  RC(2,2)  RC(2,1)  RC(2,3)
-            // Row 4: HE21 (2U)         HE22 (2U)
-               RC(2,6)  RC(2,0)
         >;
     };
 
+    // Layout 2: 2U Left - 19 keys (HE21 replaces HE16+HE17)
+    transform_2u_left: keymap_transform_1 {
+        compatible = "zmk,matrix-transform";
+        columns = <8>;
+        rows = <3>;
+        map = <
+            // Row 0: HE1      HE2      HE3      HE4      HE5
+               RC(0,4)  RC(0,6)  RC(0,7)  RC(0,5)  RC(0,3)
+            // Row 1: HE6      HE7      HE8      HE9      HE10
+               RC(0,2)  RC(0,1)  RC(0,0)  RC(1,4)  RC(1,6)
+            // Row 2: HE11     HE12     HE13     HE14     HE15
+               RC(1,2)  RC(1,1)  RC(1,0)  RC(1,3)  RC(1,5)
+            // Row 3: HE21(2U) HE18     HE19     HE20
+               RC(2,6)  RC(2,2)  RC(2,1)  RC(2,3)
+        >;
+    };
+
+    // Layout 3: 2U Right - 19 keys (HE22 replaces HE19+HE20)
+    transform_2u_right: keymap_transform_2 {
+        compatible = "zmk,matrix-transform";
+        columns = <8>;
+        rows = <3>;
+        map = <
+            // Row 0: HE1      HE2      HE3      HE4      HE5
+               RC(0,4)  RC(0,6)  RC(0,7)  RC(0,5)  RC(0,3)
+            // Row 1: HE6      HE7      HE8      HE9      HE10
+               RC(0,2)  RC(0,1)  RC(0,0)  RC(1,4)  RC(1,6)
+            // Row 2: HE11     HE12     HE13     HE14     HE15
+               RC(1,2)  RC(1,1)  RC(1,0)  RC(1,3)  RC(1,5)
+            // Row 3: HE16     HE17     HE18     HE22(2U)
+               RC(2,7)  RC(2,4)  RC(2,2)  RC(2,0)
+        >;
+    };
+
+    // Layout 4: 2U Both - 18 keys (HE21 replaces HE16+HE17, HE22 replaces HE19+HE20)
+    transform_2u_both: keymap_transform_3 {
+        compatible = "zmk,matrix-transform";
+        columns = <8>;
+        rows = <3>;
+        map = <
+            // Row 0: HE1      HE2      HE3      HE4      HE5
+               RC(0,4)  RC(0,6)  RC(0,7)  RC(0,5)  RC(0,3)
+            // Row 1: HE6      HE7      HE8      HE9      HE10
+               RC(0,2)  RC(0,1)  RC(0,0)  RC(1,4)  RC(1,6)
+            // Row 2: HE11     HE12     HE13     HE14     HE15
+               RC(1,2)  RC(1,1)  RC(1,0)  RC(1,3)  RC(1,5)
+            // Row 3: HE21(2U) HE18     HE22(2U)
+               RC(2,6)  RC(2,2)  RC(2,0)
+        >;
+    };
+
+    /* ── Kscan ── */
     he_kscan: kscan {
         compatible = "he,kscan-multiplexer";
         resolution = <12>;
