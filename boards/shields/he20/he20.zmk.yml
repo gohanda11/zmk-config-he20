@@ -1,0 +1,8 @@
+file_format: "1"
+id: he20
+name: he20
+type: shield
+url: https://github.com/gohanda11/zmk-config-he20
+requires: [seeeduino_xiao_ble]
+features:
+  - keys

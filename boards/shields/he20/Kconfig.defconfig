@@ -1,0 +1,6 @@
+if SHIELD_HE20
+
+config ZMK_KEYBOARD_NAME
+    default "HE20"
+
+endif

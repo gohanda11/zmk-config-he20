@@ -1,0 +1,4 @@
+name: he20
+build:
+  settings:
+    board_root: .
