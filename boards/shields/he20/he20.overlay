@@ -115,6 +115,14 @@
 };
 
 / {
+    xy_clipper: xy_clipper {
+        compatible = "zmk,input-processor-xy-clipper";
+        #input-processor-cells = <0>;
+        threshold = <20>;
+        invert-x = <0>;
+        invert-y = <0>;
+    };
+
     trackball_listener {
         status = "okay";
         compatible = "zmk,input-listener";
@@ -124,6 +132,7 @@
         scroller {
             layers = <5>;
             input-processors =
+                <&xy_clipper>,
                 <&zip_xy_to_scroll_mapper>,
                 <&zip_scroll_scaler 2 5>;
         };
