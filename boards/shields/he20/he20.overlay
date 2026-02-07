@@ -5,7 +5,7 @@
 / {
     chosen {
         zmk,kscan = &kscan_forwarder;
-        zmk,physical-layout = &he20_layout_1u;
+        zmk,physical-layout = &he20_layout_2u_right;
     };
 
     /*
