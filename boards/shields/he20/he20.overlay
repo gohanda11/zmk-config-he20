@@ -74,6 +74,8 @@
         wait-period-press = <1>;
         kscan-forwarder = <&kscan_forwarder>;
         polyfit = <0x408b2298 0xc1167de4 0x40fed831 0xc02b2742 0x3f404977 0x3bd693e5>;
+        default-calibration-min = <2000>;
+        default-calibration-max = <3300>;
         // calibrate;
 
         // AM1: 8 keys (HE8,HE7,HE6,HE5,HE1,HE4,HE2,HE3)
@@ -104,12 +106,12 @@
     he_input_listener: he_input_listener {
         compatible = "he,input-listener";
         device = <&he_kscan>;
-        input-processors = <&he_pass 0>;
+        input-processors = <&he_pass 8>;
     };
 };
 
 &he_pass {
-    keymap-size = <22>;
+    keymap-size = <24>;
 };
 
 &adc {
