@@ -3,4 +3,10 @@ if SHIELD_HE20
 config ZMK_KEYBOARD_NAME
     default "HE20"
 
+config INPUT
+    default y
+
+config ZMK_POINTING
+    default y
+
 endif
