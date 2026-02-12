@@ -77,9 +77,9 @@
         wait-period-press = <1>;
         kscan-forwarder = <&kscan_forwarder>;
         polyfit = <0x408b2298 0xc1167de4 0x40fed831 0xc02b2742 0x3f404977 0x3bd693e5>;
-        default-calibration-min = <800>;
-        default-calibration-max = <2400>;
-        calibrate;
+        default-calibration-min = <1100>;
+        default-calibration-max = <1600>;
+        // calibrate;
 
         // AM1: 8 keys (HE8,HE7,HE6,HE5,HE1,HE4,HE2,HE3)
         group0 {
