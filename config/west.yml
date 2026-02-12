@@ -2,6 +2,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: cr3eperall
+      url-base: https://github.com/cr3eperall
     - name: gohanda11
       url-base: https://github.com/gohanda11
     - name: badjeff
@@ -10,8 +12,8 @@ manifest:
       url-base: https://github.com/iwk7273
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: cr3eperall
+      revision: fix-child-node-dependencies
       import: app/west.yml
     - name: zmk-feature-hall-effect
       remote: gohanda11
