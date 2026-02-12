@@ -9,7 +9,7 @@
 
 / {
     chosen {
-        zmk,kscan = &kscan_forwarder;
+        zmk,kscan = &he_kscan;
         zmk,physical-layout = &he20_physical_layout;
     };
 
@@ -17,7 +17,7 @@
         compatible = "zmk,physical-layout";
         display-name = "HE20";
         transform = <&default_transform>;
-        kscan = <&kscan_forwarder>;
+        kscan = <&he_kscan>;
 
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0    0       0     0     0>
@@ -74,7 +74,7 @@
         wait-period-press = <1>;
         kscan-forwarder = <&kscan_forwarder>;
         polyfit = <0x408b2298 0xc1167de4 0x40fed831 0xc02b2742 0x3f404977 0x3bd693e5>;
-        calibrate;
+        // calibrate;
 
         // AM1: 8 keys (HE8,HE7,HE6,HE5,HE1,HE4,HE2,HE3)
         group0 {
