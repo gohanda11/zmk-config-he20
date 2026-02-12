@@ -69,7 +69,7 @@
         address-gpios = <&gpio1 13 GPIO_ACTIVE_HIGH>,  // MUX_SELECT_0 (A) = P1.13/D8
                         <&gpio1 14 GPIO_ACTIVE_HIGH>,   // MUX_SELECT_1 (B) = P1.14/D9
                         <&gpio1 15 GPIO_ACTIVE_HIGH>;   // MUX_SELECT_2 (C) = P1.15/D10
-        address-to-read-delay = <5>;
+        address-to-read-delay = <20>;
         wait-period-idle = <5>;
         wait-period-press = <1>;
         kscan-forwarder = <&kscan_forwarder>;
@@ -84,6 +84,7 @@
             address-range-min = <0>;
             address-range-max = <7>;
             switch-height = <3300>;
+            switch-pressed-is-higher;
         };
 
         // AM2: 7 keys (HE13,HE12,HE11,HE14,HE9,HE15,HE10) + X7 unused
@@ -92,6 +93,7 @@
             address-range-min = <0>;
             address-range-max = <7>;
             switch-height = <3300>;
+            switch-pressed-is-higher;
         };
 
         // AM3: 7 keys (HE22,HE19,HE18,HE20,HE17,(unused),HE21,HE16) + X5 unused
@@ -100,6 +102,7 @@
             address-range-min = <0>;
             address-range-max = <7>;
             switch-height = <3300>;
+            switch-pressed-is-higher;
         };
     };
 
@@ -111,6 +114,7 @@
 };
 
 &he_pass {
+    kscan-passthrough-position = <2000>;
     keymap-size = <24>;
 };
 
