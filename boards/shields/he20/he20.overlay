@@ -145,6 +145,7 @@
     };
 };
 
+/* Trackball disabled for debugging
 / {
     xy_clipper: xy_clipper {
         compatible = "zmk,input-processor-xy-clipper";
@@ -212,3 +213,4 @@
         wakeup-source;
     };
 };
+*/
