@@ -74,8 +74,8 @@
         wait-period-press = <1>;
         kscan-forwarder = <&kscan_forwarder>;
         polyfit = <0x408b2298 0xc1167de4 0x40fed831 0xc02b2742 0x3f404977 0x3bd693e5>;
-        default-calibration-min = <2000>;
-        default-calibration-max = <3300>;
+        default-calibration-min = <1400>;
+        default-calibration-max = <2400>;
         // calibrate;
 
         // AM1: 8 keys (HE8,HE7,HE6,HE5,HE1,HE4,HE2,HE3)
@@ -84,7 +84,6 @@
             address-range-min = <0>;
             address-range-max = <7>;
             switch-height = <3300>;
-            switch-pressed-is-higher;
         };
 
         // AM2: 7 keys (HE13,HE12,HE11,HE14,HE9,HE15,HE10) + X7 unused
@@ -93,7 +92,6 @@
             address-range-min = <0>;
             address-range-max = <7>;
             switch-height = <3300>;
-            switch-pressed-is-higher;
         };
 
         // AM3: 7 keys (HE22,HE19,HE18,HE20,HE17,(unused),HE21,HE16) + X5 unused
@@ -102,7 +100,6 @@
             address-range-min = <0>;
             address-range-max = <7>;
             switch-height = <3300>;
-            switch-pressed-is-higher;
         };
     };
 
@@ -124,7 +121,7 @@
 
     channel@1 {
         reg = <1>;
-        zephyr,gain = "ADC_GAIN_1_2";
+        zephyr,gain = "ADC_GAIN_1_4";
         zephyr,reference = "ADC_REF_INTERNAL";
         zephyr,acquisition-time = <ADC_ACQ_TIME(ADC_ACQ_TIME_MICROSECONDS, 10)>;
         zephyr,input-positive = <NRF_SAADC_AIN1>;  // P0.03/A1
@@ -133,7 +130,7 @@
 
     channel@4 {
         reg = <4>;
-        zephyr,gain = "ADC_GAIN_1_2";
+        zephyr,gain = "ADC_GAIN_1_4";
         zephyr,reference = "ADC_REF_INTERNAL";
         zephyr,acquisition-time = <ADC_ACQ_TIME(ADC_ACQ_TIME_MICROSECONDS, 10)>;
         zephyr,input-positive = <NRF_SAADC_AIN4>;  // P0.28/A2
@@ -142,7 +139,7 @@
 
     channel@5 {
         reg = <5>;
-        zephyr,gain = "ADC_GAIN_1_2";
+        zephyr,gain = "ADC_GAIN_1_4";
         zephyr,reference = "ADC_REF_INTERNAL";
         zephyr,acquisition-time = <ADC_ACQ_TIME(ADC_ACQ_TIME_MICROSECONDS, 10)>;
         zephyr,input-positive = <NRF_SAADC_AIN5>;  // P0.29/A3
