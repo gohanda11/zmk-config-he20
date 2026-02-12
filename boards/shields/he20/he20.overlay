@@ -8,6 +8,9 @@
 #include <input/he_processors.dtsi>
 
 / {
+    // ADCの競合を避けるためにバッテリー監視ノードを無効化
+    /delete-node/ vbatt;
+
     chosen {
         zmk,kscan = &he_kscan;
         zmk,physical-layout = &he20_physical_layout;
@@ -69,14 +72,14 @@
         address-gpios = <&gpio1 13 GPIO_ACTIVE_HIGH>,  // MUX_SELECT_0 (A) = P1.13/D8
                         <&gpio1 14 GPIO_ACTIVE_HIGH>,   // MUX_SELECT_1 (B) = P1.14/D9
                         <&gpio1 15 GPIO_ACTIVE_HIGH>;   // MUX_SELECT_2 (C) = P1.15/D10
-        address-to-read-delay = <20>;
+        address-to-read-delay = <50>;
         wait-period-idle = <5>;
         wait-period-press = <1>;
         kscan-forwarder = <&kscan_forwarder>;
         polyfit = <0x408b2298 0xc1167de4 0x40fed831 0xc02b2742 0x3f404977 0x3bd693e5>;
         default-calibration-min = <800>;
         default-calibration-max = <2400>;
-        // calibrate;
+        calibrate;
 
         // AM1: 8 keys (HE8,HE7,HE6,HE5,HE1,HE4,HE2,HE3)
         group0 {
